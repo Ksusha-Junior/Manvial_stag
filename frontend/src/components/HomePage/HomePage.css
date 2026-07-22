@@ -1,0 +1,12 @@
+.home-page {
+    /*background-color: black;*/
+    width: 100%; /* Обязательно задайте ширину */
+    margin-left: auto;
+    margin-right: auto;
+    /*height: 100vh; /* Пример высоты, чтобы было что центрировать */
+    height: 100%; /* высота весь экран */
+
+}
+
+
+

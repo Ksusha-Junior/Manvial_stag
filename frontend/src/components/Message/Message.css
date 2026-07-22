@@ -1,0 +1,36 @@
+.message-main {
+    background-image: url('images/окно.jpg');
+    height: 100%;
+    background-size: 120%;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    width: 100%; /* чтобы занять всю ширину */
+}
+
+.message-title {
+    text-align: center;
+    margin: 5px 5px 5px 5px;
+    font-weight: bold;         /* жирный */
+    font-size: 25px;
+}
+
+.message-text {
+    text-align: justify; /* Выравнивание текста по обоим краям */
+    margin: 0px 5px 5px 5px;
+    font-size: 1.1em;
+    width: 100%; /* растягиваем по всей ширине */
+}
+
+.message-content li {
+    list-style-type: none;   /*убрать маркеры списка*/
+    padding: 4px;
+    text-align: justify; /* Выравнивание текста по обоим краям */
+    /*marginTop: 5px;*/
+    font-size: 1.1em;
+    /*marginTop: 10px;*/
+}
+
+
+

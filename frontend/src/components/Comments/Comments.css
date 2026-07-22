@@ -1,0 +1,264 @@
+.comment {
+    background-color: #FFFFFF;
+    /*margin-top: 10px; /* Опускание текста вниз от верхнего края*/
+    flex-direction: column;
+    padding: 10px; /* Отступы */
+    margin-left: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.9); /* Тень для блока */
+    text-align: left; /* Выравнивание текста по лево */
+    width: 90%;
+    height: auto;
+}
+
+.comment-info {
+    display: flex;
+    justify-content: space-between;  /*элементы один слева с края другой справа*/}
+
+.comment-name {
+    font-size: 13px;
+    color: black;
+    font-weight: bold;
+}
+.comment-date {
+    font-size: 10px;
+    color: black;
+}
+
+.comment-text {
+    font-size: 15px;
+    color: black;
+}
+
+.comment-media {
+    display: flex;
+    /*flex-direction: column;*/
+    margin-top: 10px;
+    gap: 5px;
+}
+
+.thumb-img {
+  width: 70px;
+  height: 50px;
+  object-fit: cover;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.thumb-video {
+  width: 70px;
+  height: 50px;
+  cursor: pointer;
+  object-fit: cover;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* полупрозрачный фон */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+/*.modal-content {
+    background-color: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  max-width: 90%;
+  max-height: 90%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-family: Arial, sans-serif;
+  object-fit: contain;
+  cursor: auto; /* чтобы курсор не показывал, что можно кликать в модале */
+/*}*/
+
+.comments-container {
+   display: flex;
+   flex-direction: column;
+   height: 80vh;
+   width: 100%;
+   padding: 10px;
+   box-sizing: border-box; /* чтобы padding не мешал */
+   /*border: 1px solid #ccc; /* для визуализации, по желанию */
+}
+
+.comments-container h2 {
+    text-align: center;
+    margin: 5px 5px 5px 5px;
+    font-weight: bold;         /* жирный */
+    color: black;
+    font-size: 30px;
+    flex: 0 0 auto; /* чтобы не растягивался */
+}
+
+.comments-list {
+    flex: 1;  /* занимает всю оставшуюся высоту контейнера */
+    overflow-y: auto; /*Добавляет полосу прокрутки если все не влазит*/
+    /*list-style-type: none;   /*убрать маркеры списка*/
+    margin-top: 10px;
+    gap: 7px;
+    display: flex;
+    flex-direction: column;
+    /*background-position: center;
+    background-repeat: no-repeat;
+    height: auto%;
+    vertical-align: top;
+    text-align: center;
+    justify-content: center;*/
+}
+
+.commentbutton {
+    border: 2px solid #ccc;
+      border-Radius: 8px;
+      box-Shadow: 0 4px 8px rgba(0, 0, 0, 1);
+      text-Decoration: none;
+      color: inherit;
+      padding: 10px;
+      background-color: #9f9fa1;
+      cursor: pointer;
+}
+.commentbutton:hover {
+    background-color: #5c7a71; /* Цвет фона при наведении */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Тень при наведении */
+    color: white;
+
+}
+
+input[type="text"],
+textarea,
+input[type="file"] {
+  width: 100%;
+  padding: 12px 15px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 8px;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+button {
+  padding: 12px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.comment-submit[type="submit"] {
+  background-color: #4CAF50; /* зеленый */
+  color: white;
+
+}
+
+.comment-submit[type="submit"]:disabled {
+  background-color: #9E9E9E; /* серый */
+  cursor: not-allowed;
+}
+.comment-cancel[type="button"] {
+  background-color: #f44336; /* красная */
+  color: white;
+}
+.files-preview {
+  margin-top: 10px;
+}
+.files-preview img,
+.files-preview video {
+  border-radius: 4px;
+  margin-right: 10px;
+}
+
+
+.comment-form {
+    /*background-image: url(./images/photo_2025-03-29_18-38-30.jpg);*/
+    width: 45%;
+   /* background-color: #DCDCDC;*/
+    display: flex;
+    padding-left: 20px;
+
+}
+
+.comment-form h2 {
+    color: black;
+}
+
+.comment-form-container {
+    /*background-color: black;*/
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    margin-top: 90px;
+}
+
+.comment-form-container div {
+    margin-bottom: 15px;
+}
+
+.comment-form-container label {
+    display: block; /* Делаем метки блочными элементами */
+    margin-bottom: 5px; /* Отступ между меткой и полем ввода */
+    color: #FFFFFF;
+}
+
+.comment-form-container input,
+.comment-form-container textarea {
+    width: 100%; /* Поля занимают всю ширину родителя */
+    padding: 10px; /* Внутренние отступы */
+    border: 1px solid #696969; /* Цвет рамки */
+    border-radius: 5px; /* Закругляем углы полей */
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1); /* Внутренняя тень */
+    transition: border-color 0.3s, box-shadow 0.3s; /* Плавный переход при фокусе */
+    background-color: #C0C0C0;
+}
+
+.comment-form-container input:focus,
+.comment-form-container textarea:focus {
+    border-color: #007bff; /* Цвет рамки при фокусе */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Тень при фокусе */
+}
+
+.comment-form-container button {
+    padding: 10px 15px; /* Внутренние отступы кнопки */
+    border: none; /* Убираем рамку */
+    border-radius: 5px; /* Закругляем углы кнопки */
+    background-color: #696969; /* Цвет фона кнопки */
+    color: white; /* Цвет текста кнопки */
+    cursor: pointer; /* Указываем на возможность клика */
+    transition: background-color 0.3s, box-shadow 0.3s; /* Плавный переход */
+}
+
+.thank-you-message {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Центрирование по горизонтали */
+    justify-content: center; /* Центрирование по вертикали */
+    height: 100vh; /* Занимает всю высоту экрана */
+    font-weight: bold; /* Жирный шрифт */
+    font-size: 35px; /* Размер шрифта */
+    color: #FFFFFF; /* Цвет текста */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Тень для текста */
+    opacity: 0; /* Начальное состояние (невидимо) */
+    animation: fadeIn 1s forwards; /* Плавное появление */
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1; /* Конечное состояние (видимо) */
+    }
+}

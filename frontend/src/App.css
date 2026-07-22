@@ -1,0 +1,254 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+.app {
+  background-color: #fcfeff; /*faf2f2;*/
+  background-repeat: no-repeat;
+  /*background-position: center;*/
+  min-height: 0.8em;
+  display: flex;
+  flex-direction: column;
+}
+
+.marquee-container {
+  /* Можно задать ширину, равную ширине средней колонки */
+  max-width: 100%; /* или другую как у вашей средней колонки */
+  margin:  auto; /* Центрируем по горизонтали */
+  overflow: hidden; /* Для эффекта бегущей строки */
+}
+
+.main-content {
+    display: flex;
+    flex: 1; /* Заставляет основной контент занимать всю доступную высоту */
+    flex-direction: row;
+    width: 100%;
+    gap: 10px; /* расстояние между колонками */
+    /*height: calc(100vh - (header высота + footer высота));*/
+    /*overflow: hidden; /* чтобы контент не выходил */
+   /* background-color: black;*/
+}
+.left-column {
+  flex: 2; /* или 20% - можно оставить так, чтобы было адаптивно */
+ /* min-width: 200px; /* минималка */
+  display: flex;
+  flex-direction: column;
+  padding-top: 10px;
+  padding-left: 5px;
+  margin-right: 5px;
+  gap: 20px;  /*расстояние между елементами родительского конейнера*/
+}
+.UNN {
+    font-size: 1.2em;
+    text-align: center;
+    font-weight: bold;
+}
+.center-column {
+  display: flex;
+  flex-direction: column;
+  flex: 6; /* или 60% */
+  min-width: 500px; /* для надежности */
+  /*background-color: black;
+  /*overflow-y: auto; /* чтобы скролл появился только внутри этой колонки */
+  /*max-height: 100%; /* или calc(...) если нужно учитывать header/footer */
+}
+
+.right-column {
+    display: flex;
+    flex-direction: column;
+  flex: 2; /* или 20% */
+  gap: 15px;
+  min-width: 200px;
+  padding-top: 10px;
+  padding-left: 10px;
+   margin-right: 10px;
+}
+.scrolling-text {
+  width: 100%; /* Задает ширину блока равной ширине контейнера */
+  overflow: hidden; /* Обрезает содержимое, выходящее за границы блока (для эффекта бегущей строки) */
+  white-space: nowrap; /* Запрещает перенос строки, чтобы текст шёл в одну линию */
+  /*background-color: #ffd; /* Цвет фона блока (желтый) */
+  color: #9e0e0e;  /*#520210;/*d63915; /* Цвет текста */
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7); /*тень для текста*/
+  font-weight: bold;         /* жирный */
+  font-size: 1.2em;
+}
+
+.scrolling-text::after {
+  content: attr(data-text); /* Использует атрибут data-text для вставки текста, если потребуется, тут можно убрать */
+}
+
+/* Анимация текста для бегущей строки */
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(100%); /* Начинается справа за пределами видимости */
+  }
+  100% {
+    transform: translateX(-100%); /* Проходит полностью слева за пределы */
+  }
+}
+
+.scrolling-text {
+  display: inline-block; /* Устанавливает блочный, чтобы применять анимацию */
+  animation: scrollLeft 17s linear infinite; /* Время прохождения и бесконечное повторение */
+}
+
+/* Стиль для кнопки-ссылки */
+.telegram-button {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  background-color: #0088cc;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background-color 0.3s, transform 0.2s;
+  max-width: 100%;
+  font-family: Arial, sans-serif;
+  margin-top: 10px;
+}
+
+.telegram-button:hover {
+  background-color: #006fae;
+  transform: scale(1.05);
+  color: black;
+}
+
+/* Стиль для иконки */
+.telegram-icon {
+  margin-right: 10px;
+  font-size: 24px;
+}
+
+.container {
+  perspective: 1000px; /* глубина 3D */
+  display: inline-block;
+}
+
+/* Анимация текста */
+@keyframes pulseRotate {
+  0% {
+    opacity: 0;
+    transform: scale(0) rotateY(0deg);
+  }
+  10% {
+    opacity: 1;
+    transform: scale(1) rotateY(0deg);
+  }
+
+  /* Задержка после увеличения: оставаться с opacity 1 */
+  12% {
+    opacity: 1;
+    transform: scale(1) rotateY(0deg);
+  }
+  30% {
+    opacity: 1;
+    /* задержка без изменений */
+  }
+
+  /* Вращение */
+  30% {
+    transform: scale(1) rotateY(0deg);
+  }
+  50% {
+    transform: scale(1) rotateY(360deg);
+  }
+
+  /* После вращения — задержка, остаемся с opacity 1 */
+  70% {
+    opacity: 1;
+    transform: scale(1) rotateY(360deg);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0) rotateY(360deg);
+  }
+}
+
+/* Для анимационного текста */
+.animated-text {
+  margin-top: 15px;
+  display: inline-block;
+  font-size: 17px;
+  text-align: center;
+  color: #9e0e0e;
+  font-weight: bold;
+  transform-style: preserve-3d; /* Чтобы сохранился 3D эффект */
+  animation: pulseRotate 20s linear infinite;
+}
+
+/* Адаптация для мобильных устройств */
+@media (max-width: 768px) {
+
+  /* Центрируем и уменьшаем ширину marquee */
+  .marquee-container {
+    max-width: 100%;
+  }
+
+  /* Изменяем основной блок с колонками на вертикальный стек */
+  .main-content {
+    flex-direction: column;
+  }
+
+  /* Устанавливаем ширину колонок под 100% */
+  .left-column,
+  .center-column,
+  .right-column {
+    flex: none; /* отключаем гибкость */
+    width: 100%;
+    min-width: 0; /* чтобы убрать минимальные ограничения */
+  }
+
+  /* Можно добавить отступы между блоками для читаемости */
+  .left-column,
+  .center-column,
+  .right-column {
+    margin-bottom: 20px;
+  }
+
+  /* Можно уменьшить размеры шрифтов или скорректировать их */
+  .scrolling-text {
+    font-size: 0.7em;
+  }
+
+  /* При необходимости можно адаптировать кнопки, текст и отступы */
+  .telegram-button {
+    width: 100%; /* чтобы кнопка занимала всю ширину блока */
+    justify-content: center;
+  }
+    .modal {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: auto;
+      background: rgba(0,0,0,0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px;
+      z-index: 999;
+    }
+
+    .modal-content {
+      background: #fff;
+      /*padding: 0px 20px 0px 20px;*/
+      /*max-width: 500px;*/
+      width: 80%;
+      border-radius: 10px;
+      /*position: relative;*/
+    }
+
+    .PersonalInfobutton {
+        border: 2px solid #ccc;
+        border-Radius: 8px;
+        box-Shadow: 0 4px 8px rgba(0, 0, 0, 1);
+        text-Decoration: none;
+        color: inherit;
+        padding: 5px;
+        width: 100%;
+        background-color: #9f9fa1;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+}

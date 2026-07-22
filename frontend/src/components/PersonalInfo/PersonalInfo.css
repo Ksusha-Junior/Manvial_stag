@@ -1,0 +1,41 @@
+.personalinfo-container {
+    /*background-color: #faf2f2;*/
+    display: flex;
+    flex-direction: column;
+    /*margin-top: 5px; /* Опускание текста вниз от верхнего края*/
+    padding: 10px; /* Отступы */
+    gap: 10px;  /*отступ между элементами внутри контейнера*/
+    justify-content: center;
+    width: 100%; /* растягиваем по всей ширине */
+    width: 200px;  /* Ограничение ширины контейнера */
+    height: 300px;  /* Ограничение высоты контейнера */
+    /*overflow: auto; /*Добавляет полосу прокрутки если все не влазит*/
+
+}
+
+.personalinfo-image {
+    width: 120px; /* Ширина изображения */
+    height: 200px; /*  высота */
+    border-radius: 15px;
+    object-fit: cover;
+}
+
+.personalinfo-text {
+    width: 100%; /* растягиваем по всей ширине */
+    font-weight: bold;         /* жирный */
+    font-size: 14px;
+    text-align: justify; /* Выравнивание текста по обоим краям */
+    /*font-style: oblique;  /*шрифт курсив*/
+}
+
+/* Медиазапрос для экранов шириной <= 768px */
+@media (max-width: 768px) {
+    .personalinfo-container{
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        width: 100%;
+        padding:10px;
+    }
+
+}

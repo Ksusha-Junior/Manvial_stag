@@ -1,0 +1,116 @@
+.orgbutton {
+    border: 2px solid #ccc;
+    border-Radius: 8px;
+    box-Shadow: 0 4px 8px rgba(0, 0, 0, 1);
+    text-Decoration: none;
+    color: inherit;
+    padding: 5px;
+    width: 100%;
+    background-color: #9f9fa1;/*#bddbd2;*/
+    cursor: pointer;
+    margin-top: 10px;
+}
+.orgbutton:hover {
+    background-color: #5c7a71; /* Цвет фона при наведении */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Тень при наведении */
+    color: white;
+}
+
+/* Модальное окно */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 90%;
+  max-height: 90%;
+  overflow-y: auto;
+  position: relative;
+}
+
+.text-content {
+    white-space: pre-wrap; /* сохраняет переносы строк */
+    color: #333;
+    /*font-size: 16px;*/
+}
+
+/* Веер фото */
+.fan-container {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto; /* горизонтальная прокрутка */
+  gap: 10px;
+  padding-bottom: 10px;
+}
+
+/* Фото в веере */
+.fan-image {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Эффекты при наведении */
+.fan-image:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  border-radius: 8px;
+}
+
+/* Контейнер для увеличенного изображения */
+.expanded-image-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 1100;
+  border-radius: 8px;
+}
+
+.expanded-image {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.5);
+  transition: transform 0.3s;
+  cursor: zoom-out;
+}
+
+.photo {
+  position: absolute; /* Все фото — абсолютное позиционирование */
+  top: 0;
+  left: 0;
+  width: 200px; /* или любой размер по умолчанию */
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.3s, opacity 0.3s;
+  /* добавьте нужные эффекты, например, прозрачность или смещение */
+}
+
+/* Адаптация для мобильных устройств */
+@media (max-width: 768px) {
+    .modal-content{
+        max-height: auto;
+    }
+}

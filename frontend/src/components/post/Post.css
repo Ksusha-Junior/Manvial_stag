@@ -1,0 +1,80 @@
+.app-container {
+    display: flex;
+    height: auto;  /* Ограничение высоты контейнера */
+
+}
+.post {
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    color: black; /* Цвет текста  */
+    justify-content: center;
+    /*height: auto;  /* Ограничение высоты контейнера */
+    /*overflow: hidde; /*Добавляет полосу прокрутки если все не влазит*/
+}
+.post-title {
+    text-align: center;
+    margin: 0px 5px 5px 5px;
+    font-weight: bold;         /* жирный */
+}
+
+.post-image {
+    max-width: 83%;  /* Ширина изображения */
+    max-height: auto;
+    border-radius: 15px;
+    object-fit: cover;
+    margin-left: auto;  /*расположение посередине контейнера-родителя*/
+    margin-right: auto;
+}
+
+.post-text {
+    text-align: justify; /* Выравнивание текста по обоим краям */
+    margin-top: 3px;
+    font-size: 1.2em;
+}
+.postlist-container {
+     max-width: 100%; /* занимает всю ширину контейнера */
+     height: auto;
+}
+
+.carousel-container {
+    position: relative; /* Для позиционирования стрелок */
+    width: 100%; /* чтобы занимать всю ширину средней колонки */
+    max-width: 100%; /* чтобы не было превышения */
+    margin: 0 auto;
+}
+
+.carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 15;
+    background-color: #8ad3f2/*rgba*/(0, 0, 0, 0.5);
+    color: black;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 30px;
+    border-radius: 50%;
+    transition: background-color 0.3s ease; /* Плавный переход */
+}
+
+.carousel-arrow.prev {
+    left: 10px;
+}
+
+.carousel-arrow.next {
+    right: 10px;
+}
+
+/* Адаптация для мобильных устройств */
+@media (max-width: 768px) {
+    .post-text {
+    font-size: 1.0em;
+    padding-left: 3px;
+    padding-right: 3px;
+    }
+    .carousel-arrow {
+        top: 30%;
+    }
+}

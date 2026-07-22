@@ -1,0 +1,18 @@
+.footer {
+    background-color: #e1e1e3;  /*#f2f2f5;/*#e1eff5;  /*#FFF8DC; /* Цвет фона футера */
+    color: #293133; /* Цвет текста */
+    /*text-align: center; /* Центрирование текста */
+    margin-top: auto;
+    padding: 5px; /* Отступы внутри футера */
+    flex-shrink: 0; /* Предотвращает сжатие футера */
+    height: 20px; /* Установите желаемую высоту */
+    display: flex; /* Используем flexbox для выравнивания содержимого */
+    align-items: center; /* Вертикальное центрирование содержимого */
+    justify-content: right; /* Горизонтальное центрирование содержимого */
+    font-size: 10px;
+    position: fixed;  /*прижимает footer книзу*/
+    bottom: 0;
+    width: 100%;
+
+}
+
