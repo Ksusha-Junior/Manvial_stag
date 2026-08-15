@@ -21,6 +21,9 @@ CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:3000",
 ]
 CORS_ALLOW_CREDENTIALS = True
+# JWT_AUTH_COOKIE = "refresh_token"
+# CSRF_COOKIE_SAMESITE = "None"
+# CSRF_COOKIE_SECURE = True
 
 
 INSTALLED_APPS = [
@@ -37,6 +40,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'rest_framework_simplejwt',
     'users',
+    # "channels",
 ]
 
 MIDDLEWARE = [
@@ -50,6 +54,49 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     "django.middleware.common.CommonMiddleware",
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
+    ),
+}
+# Настройка токенов
+
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=15),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=7),
+    'ROTATE_REFRESH_TOKENS': True,
+    'BLACKLIST_AFTER_ROTATION': True,
+
+    # Названия кук
+    # 'AUTH_COOKIE': 'access_token',
+    # 'AUTH_COOKIE_REFRESH': 'refresh_token',
+    # 'AUTH_COOKIE_SECURE': False,  # Поменяйте на True на продакшене (HTTPS)
+    # 'AUTH_COOKIE_HTTP_ONLY': True,  # JS не имеет доступа к кукам
+    # 'AUTH_COOKIE_PATH': '/',
+    # 'AUTH_COOKIE_SAMESITE': 'Lax',
+}
+
+# AUTH_USER_MODEL = 'users.CustomUser'
+
+# DJOSER = {
+#     'LOGIN_FIELD': 'email',
+#     'USER_CREATE_PASSWORD_RETYPE': True, # Требовать подтверждение пароля
+#     'SEND_ACTIVATION_EMAIL': True,       # Включить отправку писем для активации
+#     'ACTIVATION_URL': 'activate/{uid}/{token}', # URL на вашем React-фронтенде
+#     'SERIALIZERS': {
+#         'user_create': 'users.serializers.CustomUserCreateSerializer',
+#     },
+# }
+
+# Настройки SMTP-сервера (для отправки реальных писем, например через Yandex/Mail/Gmail)
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST = '://yoursite.com'
+# EMAIL_PORT = 465
+# EMAIL_USE_SSL = True
+# EMAIL_HOST_USER = 'noreply@yoursite.com'
+# EMAIL_HOST_PASSWORD = 'your_email_password'
+
 
 ROOT_URLCONF = 'api.urls'
 
