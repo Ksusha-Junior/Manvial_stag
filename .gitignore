@@ -32,3 +32,4 @@ frontend/src/images/
 .idea/
 .venv/
 node_modules/
+info.txt
